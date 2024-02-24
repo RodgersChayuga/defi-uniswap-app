@@ -4,6 +4,8 @@
 /.pnp
 .pnp.js
 
+/client/.next
+
 # testing
 /client/coverage
 /smart_contract/coverage
