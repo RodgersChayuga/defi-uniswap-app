@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 import { AiOutlineDown } from "react-icons/ai";
-import { FiArrowUpRight } from "react-icons/fi";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
 import ethLogo from "../assets/eth.png";
 import uniswapLogo from "../assets/uniswap.png";
+import NavigationMenu from "./NavigationMenu";
 
 const style = {
   wrapper: `p-4 w-screen flex justify-between items-center`,
@@ -26,51 +26,14 @@ const style = {
 };
 
 const Header = () => {
-  const [selectedNav, setSelectedNav] = useState("swap");
-  const [userName, setUserName] = useState<string>();
+  // const [userName, setUserName] = useState<string>();
 
   return (
     <div className={style.wrapper}>
       <div className={style.headerLogo}>
         <Image src={uniswapLogo} alt="uniswap" height={40} width={40} />
       </div>
-      <div className={style.nav}>
-        <div className={style.navItemsContainer}>
-          <div
-            onClick={() => setSelectedNav("swap")}
-            className={`${style.navItem} ${
-              selectedNav === "swap" && style.activeNavItem
-            }`}
-          >
-            Swap
-          </div>
-          <div
-            onClick={() => setSelectedNav("pool")}
-            className={`${style.navItem} ${
-              selectedNav === "pool" && style.activeNavItem
-            }`}
-          >
-            Pool
-          </div>
-          <div
-            onClick={() => setSelectedNav("vote")}
-            className={`${style.navItem} ${
-              selectedNav === "vote" && style.activeNavItem
-            }`}
-          >
-            Vote
-          </div>
-          <a
-            href="https://info.uniswap.org/#/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className={style.navItem}>
-              Charts <FiArrowUpRight />
-            </div>
-          </a>
-        </div>
-      </div>
+      <NavigationMenu />
       <div className={style.buttonsContainer}>
         <div className={`${style.button} ${style.buttonPadding}`}>
           <div className={style.buttonIconContainer}>

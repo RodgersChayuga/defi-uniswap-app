@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
 
 import Header from "@/components/Header";
+import WagmiWrapper from "@/wagmi/WagmiWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +23,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} h-screen max-h-screen h-min-screen w-screen bg-[#2D242F] text-white select-none flex flex-col justify-between`}
       >
-        <Header />
-        {children}
+        <WagmiWrapper>
+          <Header />
+          {children}
+        </WagmiWrapper>
       </body>
     </html>
   );
